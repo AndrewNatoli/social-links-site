@@ -15,22 +15,22 @@
     </section>
     <section id="main">
       <div class="container">
-        <a href="https://AndrewNatoli.com">
+        <a href="https://AndrewNatoli.com" target="_blank" onclick="trackOutgoingLink(this);">
           <div>My Website</div>
         </a>
-        <a href="https://medium.com/@AndrewNatoli">
+        <a href="https://medium.com/@AndrewNatoli" target="_blank" onclick="trackOutgoingLink(this);">
           <div>Medium</div>
         </a>
-        <a href="https://linkedin.com/in/andrewnatoli">
+        <a href="https://linkedin.com/in/andrewnatoli" target="_blank" onclick="trackOutgoingLink(this);">
           <div>LinkedIn</div>
         </a>
-        <a href="https://twitter.com/AndrewNatoli">
+        <a href="https://twitter.com/AndrewNatoli" target="_blank" onclick="trackOutgoingLink(this);">
           <div>Twitter</div>
         </a>
-        <a href="https://github.com/AndrewNatoli">
+        <a href="https://github.com/AndrewNatoli" target="_blank" onclick="trackOutgoingLink(this);">
           <div>GitHub</div>
         </a>
-        <a href="https://brigade.opencharlotte.org/">
+        <a href="https://brigade.opencharlotte.org/" target="_blank" onclick="trackOutgoingLink(this);">
           <div>Open Charlotte Brigade</div>
         </a>
         <!-- <h2>Future setion</h2>
@@ -48,6 +48,19 @@
       gtag('js', new Date());
 
       gtag('config', 'UA-7496304-2');
+
+      function trackOutgoingLink(el) {
+        ga(
+          'send', 
+          'event', 
+          {
+            eventCategory: 'outbound',
+            eventAction: 'send',
+            eventLabel: el.getAttribute('href'),
+            eventValue: 1
+          }
+        );
+      };
     </script>
   </body>
 </html>
